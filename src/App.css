@@ -8,3 +8,21 @@
     padding: 0;
     box-sizing: border-box;
 }
+.msg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .msg h2 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  

@@ -1,38 +1,21 @@
-import React, { useState, useEffect } from 'react';
-import '../styles/UserGrid.css'
+import React, { useState , useEffect} from 'react';
+import '../styles/UserGrid.css';
 import imageProcessing from '../images/image_processing.gif'
-import axios from 'axios';
 
-const UserGrid = () => {
-  const [loading, setLoading] = useState(true);
-  const [users, setUsers] = useState([]);
 
+const UserGrid = ({ users }) => {
+  const [show, setShow] = useState(false);
   useEffect(() => {
-    const fetchUsers = async () => {
-      setLoading(true);
-      try {
-        const response = await axios.get('https://reqres.in/api/users?page=1');
-        setUsers(response.data.data);
-        setTimeout(() => {
-          setLoading(false);
-        }, 900);
-      } catch (error) {
-        console.error('Error fetching users:', error);
-      }
-    };
-
-    fetchUsers();
-  }, []);
+    setTimeout(() => {
+      setShow(true);
+    }, 900)
+  }, [])
 
   return (
-    <div className="user-grid">
-      {loading ? (
-        <div className="loader">
-        
-         <img src={imageProcessing} alt='loader'/>
-         {/* <img src='../images/x.jpeg' alt='loaderX'/> */}
-        </div>
-      ) : (
+    <>
+      {!show ? (<div className="loader">
+        <img src={imageProcessing} alt='loader' />
+      </div>) : <div className="user-grid">
         <div className="grid-container">
           {users.map((user) => (
             <div key={user.id} className="user-card">
@@ -42,8 +25,9 @@ const UserGrid = () => {
             </div>
           ))}
         </div>
-      )}
-    </div>
+      </div>}
+
+    </>
   );
 };
 
