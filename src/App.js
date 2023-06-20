@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Navbar from '../src/Components/Navbar';
+import UserGrid from '../src/Components/UserGrid';
+import '../src/App.css'
 
-function App() {
+const App = () => {
+  const getUsers = () => {
+    // Function to handle the button click and fetch users
+    console.log('Fetching users...');
+    // Call the API or perform any necessary actions
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar getUsers={getUsers} />
+      <UserGrid />
     </div>
   );
-}
+};
 
 export default App;
