@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/UserGrid.css'
 import imageProcessing from '../images/image_processing.gif'
+import axios from 'axios';
 
 const UserGrid = () => {
   const [loading, setLoading] = useState(true);
@@ -10,15 +11,11 @@ const UserGrid = () => {
     const fetchUsers = async () => {
       setLoading(true);
       try {
-        const response = await fetch('https://reqres.in/api/users?page=1');
-        const data = await response.json();
-        setUsers(data.data);
-        setTimeout(()=>
-        {
+        const response = await axios.get('https://reqres.in/api/users?page=1');
+        setUsers(response.data.data);
+        setTimeout(() => {
           setLoading(false);
-        },900)
-        
-        
+        }, 900);
       } catch (error) {
         console.error('Error fetching users:', error);
       }
