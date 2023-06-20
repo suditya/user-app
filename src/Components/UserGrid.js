@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/UserGrid.css'
+import imageProcessing from '../images/image_processing.gif'
 
 const UserGrid = () => {
   const [loading, setLoading] = useState(true);
@@ -12,7 +13,12 @@ const UserGrid = () => {
         const response = await fetch('https://reqres.in/api/users?page=1');
         const data = await response.json();
         setUsers(data.data);
-        // setLoading(false);
+        setTimeout(()=>
+        {
+          setLoading(false);
+        },900)
+        
+        
       } catch (error) {
         console.error('Error fetching users:', error);
       }
@@ -25,7 +31,9 @@ const UserGrid = () => {
     <div className="user-grid">
       {loading ? (
         <div className="loader">
-         <img src='../images/image_processing.gif' alt='loader-image'/>
+        
+         <img src={imageProcessing} alt='loader'/>
+         {/* <img src='../images/x.jpeg' alt='loaderX'/> */}
         </div>
       ) : (
         <div className="grid-container">

@@ -1,22 +1,35 @@
-nav {
-    background-color: #333;
-    color: #fff;
-    padding: 10px;
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1rem;
+    background-color: #f2f2f2;
   }
   
-  .brand {
-    font-size: 24px;
+  .navbar__brand {
+    font-size: 1.5rem;
     font-weight: bold;
+    border: 1px solid grey;
+    padding: 8px;
+    border-radius: 15px;
+    color: white;
+    background-color: #222a39;
+    font-family: monospace;
   }
   
-  button {
+  .navbar__button {
+    padding: 0.5rem 1rem;
     background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 8px 16px;
+    margin-right: 25px;
+    border-radius: 20px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .navbar__button:hover {
+    background-color: #307523;
+    transform:scale(1.15);
   }
   

@@ -1,10 +1,13 @@
 import React from 'react';
-import '../styles/Navbar.css'
+import '../styles/Navbar.css';
+
 const Navbar = ({ getUsers }) => {
   return (
-    <nav>
-      <div className="brand">AirData</div>
-      <button onClick={getUsers}>Get users</button>
+    <nav className="navbar">
+      <div className="navbar__brand">AirData</div>
+      <button className="navbar__button" onClick={getUsers}>
+        Get Users
+      </button>
     </nav>
   );
 };
